@@ -1,0 +1,56 @@
+.numero1:hover{
+    border-color: grey;
+    padding:3px 12px;
+  }
+
+  .menus:hover{
+      background-color: rgba(86, 170, 226, 0.39);
+  }
+
+  .numero2:hover{
+      
+      border-radius: 10%;
+      background-color: rgba(151, 150, 150, 0.158);
+      padding:3px 8px;
+  }
+
+  .numero2{
+    padding:3px 8px;
+  }
+
+  .diagram-container {
+    height: 100%;
+    width: 100%;
+  }
+  .card2 {
+    margin-block-start: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.185);
+    transition: 0.3s;
+    background-color: rgba(255, 255, 255, 0.644);
+    border:1px solid grey;
+    width:10px; 
+    text-align: left;
+    height: 40px;
+    margin:5px;
+    border-radius: 5px;
+  }
+  .modal-dialog {
+    margin: 0;
+  }
+  .modal-content{
+    width: 200%;
+    margin-left: 50%;
+  }
+
+  .card2:hover {
+    box-shadow: 0 8px 6px 0 rgba(59, 59, 59, 0.527);
+  }
+  .card:hover {
+    box-shadow: 0 8px 6px 0 rgba(184, 184, 184, 0.527);
+  }
+  
+
+  .card2Write{
+    font-style: small;
+    margin-top:5%
+  }

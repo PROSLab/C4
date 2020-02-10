@@ -1,0 +1,176 @@
+<div class="container">
+    <div class="row">
+
+        <div  style="height: 40%;">
+              <button class="btn btn-default numero2" (click)="sendToRepoFold()"><h4>My Repositories</h4> </button> 
+        </div>
+            <div>
+             <i class='fas fa-greater-than' style="margin-top:100%;margin-left: 30%;margin-top:9px;"></i>
+          </div>
+          <div  style="height: 40%;">
+            <button class="btn btn-default numero2" (click)="sendToRepo()"><h4>{{repoInfo?.repositoryName}}</h4> </button> 
+      </div>
+      <div>
+        <i class='fas fa-greater-than' style="margin-top:100%;margin-left: 30%;margin-top:9px;"></i>
+     </div>
+              <div class=" dropdown dropdown-toggle  grassetto" id="menu" style="height: 20%;margin-left:1%">
+                  <a class="btn btn-default  " role="button" id="dropdownMenuLink"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <h4>{{folderInfo?.folderName}}</h4>
+                  </a>
+  
+                  <div class="dropdown-menu "  *ngIf="isLogged" id="menu2"  aria-labelledby="dropdownMenuLink">
+                      <div>
+                          <div (click)="modifyName()"data-toggle="modal" data-target="#myModalFolder">
+                              <a class="dropdown-item bianco menus">Modify Name Folder </a>
+                          </div>
+  
+                         <!--  <div data-toggle="modal" data-target="#myModalFile"> -->
+                                <div data-target="#myModalChooseFile" data-toggle="modal">
+                                        <a class="dropdown-item bianco menus">Create File </a>
+                                    </div>
+  
+                          <div>
+                              <a class="dropdown-item bianco menus">
+                                  <label for="file">Import File
+                                      <input type="file" id="file" #f (change)="handleFileInput($event.target.files)">
+                                  </label>
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-6"></div>
+      
+  <div class="col-2;">
+  
+          <div  data-toggle="modal" data-target="#info">   
+           <button style="background-color: transparent;border:transparent;left:6%;position : relative;" (click)="info=true">
+                  <i style="font-size:24px;" class="fa">&#xf05a;</i>
+           </button> 
+          </div>  
+          </div>
+          
+      </div>
+   
+    <div class="modal fade" id="myModalFolder" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Modify folder name</h4>
+                </div>
+                <form [formGroup]="modifyNameFolder" (ngSubmit)="sendNewNameFolder(folderName.value)">
+                <div class="modal-body">
+                    
+                    <label for="reponame"><b>Folder name</b> </label><br>
+                    <input type="text" maxlength="13" class="form-control" formControlName="foldername" [ngClass]="{ 'is-invalid': submitted && f.foldername.errors }" required  [(ngModel)]="reset" #folderName  />
+                
+                <br>
+                <div *ngIf="submitted && f.foldername.errors" class="invalid-feedback">
+
+                    <div *ngIf="f.foldername.errors.required">Folder name is Required</div>
+                </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button   style="margin-right:10px;" 
+                                                           class="btn btn-primary">Save Folder </button>
+                    <button type="button" class="btn btn-danger" #closeModifyName data-dismiss="modal"> Close </button>
+                </div>
+            </form >
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="info" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Info</h4>
+                </div>
+                <div class="modal-body">
+                        Folder: {{folderInfo?.folderName}} <br>
+                       
+                        Created At: {{folderInfo?.createdAt}} <br>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <hr>
+
+  <!-- modal choose file-->
+  <div class="modal fade" id="myModalChooseFile" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Choose the editor for the new model </h4>
+                </div>
+               
+
+                    <div class="modal-body">
+                            <button style="margin-right:10px;" class="btn btn-success col-4" (click)="goToCollaboration()">
+                                    Collaboration </button>
+                            <button style="margin-right:10px;" class="btn btn-warning col-4" (click)="goToChoreography()">
+                                    Choreography </button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" #closeModalChooseFile data-dismiss="modal">Close</button>
+                    </div>
+             
+            </div>
+        </div>
+    </div>
+<br>
+    <div *ngIf="exist==true" style="margin:5px"><h4>List of your folder e files</h4>
+        <table>
+            <thead>
+                <tr>
+                        <th width="5%"></th>
+                        <th width="20%">Name</th>
+                        <th width="20%">Created At</th>
+                        <th width="20%">Author</th>
+                        <th width="20%">Type</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                    <tr *ngFor="let fil of files;" (click)="sendTofile(fil.id)">
+                            <th scope="row">
+                                    <i class="fa" style="margin-left:20%;zoom:140%">	&#xf15b;</i>
+                                </th>
+                        <th scope="row">
+                            {{fil?.originalName}}
+                        </th>
+    
+                        <th scope="row">{{fil?.createdAt}}</th>
+                        <th scope="row">{{fil?.autore}}</th>
+                        <th scope="row">Model - {{fil?.fileType}}</th>
+                    </tr>
+
+                    
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="!exist && isLogged">
+            <div class="alert alert-danger  col-10 alert-dismissible" style="position: center;margin-top:15%;margin-left:3%">
+                    <strong>
+                       <h4> Your folder is empty. <br>
+                        You can create or import a file from your system clicking on
+                        <b>"{{folderInfo?.folderName}}"</b> button.</h4>
+                    </strong>
+                </div>
+</div>
+
+<div *ngIf="!isLogged&&!exist" class="alert alert-danger  col-10 alert-dismissible" style="position: center;margin-top:15%;margin-left:3%">
+    <strong>
+       <h4>This Folder is empty. <br>
+        You can login or register to do amazing things together :)!</h4>
+    </strong>
+</div>
+
+<br>
+<button (click)="back()" class="btn btn-info">Back</button>

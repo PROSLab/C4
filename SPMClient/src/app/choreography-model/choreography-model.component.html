@@ -1,0 +1,87 @@
+<div class="row">
+    <button style="margin-top:-0.6%" class="btn btn-default numero2" (click)="sendTofile()">
+        <h3>{{title}}</h3>
+    </button>
+    <div>
+        <i class='fas fa-greater-than' style="margin-top:100%;margin-left: 30%;margin-top:9px;"></i>
+    </div>
+    <h3 style="margin-left: 1%">Choreography Editor</h3>
+    <br> 
+    <div  class="col-11">
+        <button (click)="exportModel()"  data-dismiss="modal" class="btn btn-success">Export Model <i class="fa">&#xf019;</i> </button>
+        <button (click)="openModal()" *ngIf="isLogged"  style="margin-left: 1%"  data-toggle="modal" id="saveModal" data-target="" class="btn btn-primary">Save <i class="fa fa-save"></i></button>
+         </div>
+
+</div>
+<br>
+
+  <div class="content with-diagram" id="js-drop-zone">
+    <div id="canvas" style="background-color: white"></div>
+  </div>
+
+
+  <button (click)="back()" class="btn btn-info">Back</button>
+
+  <!-- Modal crea file -->
+    <div class="modal fade" id="myModalFile" role="dialog">
+        <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h4 class="modal-title">Create a new File</h4>
+                  </div>
+  
+                  <div class="modal-body">
+  
+                      <div>
+                          <label for="reponame"><b>File name</b> </label><br>
+                          <input type="text" maxlength="13" required id="namerepo" #nameFile name="namerepo" />
+                      </div>
+                      <br>
+                      
+                  </div>
+  
+                  <div class="modal-footer">
+                      <button (click)="save(nameFile.value)" style="margin-right:10px;" data-dismiss="modal" class="btn btn-primary col-4">Save
+                          File </button>
+                          
+                      <button type="button" class="btn btn-danger" #closeModalCreateFile data-dismiss="modal">Close</button>
+                  </div>
+  
+              </div>
+        </div>
+    </div>
+  
+    <!--modal validity model-->
+   <div class="modal fade" id="validityModal" role="dialog">
+      <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Validity of your modal</h4>
+                </div>
+  
+                <div class="modal-body">
+                  <div style="height:20%">
+                      <h5>Soundness: </h5> 
+  
+            <img style="zoom:9%;margin-right:1%" id="imageSoundness" src="" alt="">
+              {{messageSoundness}}
+              <hr>
+              <br>
+  
+              <h5>Safeness </h5>
+                  <img style="zoom:9%" id="imageSafeness" src="" alt="">
+             {{messageSafeness}}
+          </div> 
+  <!-- 
+                  <div *ngIf="error!=null">Error 500</div>
+                      <label>Soundness:</label> {{soundness}}
+                      <label>Safeness:</label> {{safeness}}
+                </div> -->
+  
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" (click)="close()" #closeModalCreateFile data-dismiss="modal">Close</button>
+                </div>
+  
+            </div>
+      </div>
+  </div> 

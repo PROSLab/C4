@@ -1,0 +1,10 @@
+{"/library/*": {
+    "target": "http://localhost:4800",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/library": ""
+    }
+  }
+}

@@ -1,0 +1,26 @@
+#properties {
+  position: absolute;
+  top: 10%;
+  bottom: 0;
+  right: 0;
+  width: 260px;
+  z-index: 10;
+/*   border-left: 1px solid #ccc;
+ */  overflow: auto;
+}
+.label{
+  color:black;
+}
+
+
+
+.numero2{
+  padding:1px 4px;
+}
+
+.numero2:hover{
+      
+  border-radius: 10%;
+  background-color: rgba(151, 150, 150, 0.158);
+  padding:1px 4px;
+}
