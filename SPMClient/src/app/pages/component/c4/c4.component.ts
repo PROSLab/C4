@@ -577,9 +577,10 @@ this.state=checkEqui.resultState
 
 
       this.toastr.success('Wait a moment please', 'waiting')
+      
       this.service.submitC4(this.fileToUpload, this.fileToUpload2)
         .subscribe(data => {
-
+console.log("cici")
           var mcrl =JSON.parse(data) 
           this.collaboration = mcrl.collaboration
           this.choreography = mcrl.choreography

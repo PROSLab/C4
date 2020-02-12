@@ -12,7 +12,10 @@ constructor(private route:Router){}
     if(localStorage.getItem("id")!=null){
       return true;
     }else 
-    this.route.navigate(['/login'])
+    
+      this.route.navigate(['/login'])
+    
+    
     return false;
   }
 }

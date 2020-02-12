@@ -24,7 +24,7 @@ const httpOptions3 = {
 })
 
 export class Service {
-  public baseUrl = 'http://localhost:8080/'
+  public baseUrl = 'http://193.205.92.97:8080/'
   public errorMsg: string;
   public isLogged:boolean=false;
   user: Object;
@@ -44,9 +44,9 @@ export class Service {
   //@@@ SERVICE PER LE FUNZIONI DELL'UTENTE@@@//
 
   // FUNZIONE PER AGGIUNGERE GLI UTENTI USATA IN REGISTRAZIONE
-  addUser(user: User): Observable<User> {
+  addUser(user: User): Observable<any> {
 
-    return this.http.post<User>(this.baseUrl + 'api/user/signin', user)
+    return this.http.post<any>(this.baseUrl+'api/user/signin', user)
       .pipe(
         // UTILIZZARE LA FUNZIONE TAP QUANDO ABBIAMO NECESSITA DI UTILIZZARE I DATI DEL SUCCESSO
         // tap(data => data),
@@ -74,12 +74,12 @@ export class Service {
       );
   }
 
-  loginUser(email, psw): Observable<User> {
+  loginUser(email, psw): Observable<any> {
     let params = new HttpParams();
     params = params.append('email', email)
     params = params.append('password', psw)
 
-    return this.http.get<User>(this.baseUrl + 'api/user/login', { params: params })
+    return this.http.get<any>(this.baseUrl + 'api/user/login', { params: params })
       .pipe(
         tap(userLogged =>{
           localStorage.setItem('isLogged','true')
@@ -87,10 +87,15 @@ export class Service {
           setTimeout(()=>{
            
           this.router.navigate(['/']);
-         
+          setTimeout(()=>{
+           
             location.reload();
+                 
+               }, 500); 
+            
          
             }, 2000); 
+           
         }), //mi salvo tutti i dati di ritorno dal server
         catchError(this.handleError)
       );
@@ -517,6 +522,7 @@ shareFile(repoName,idUser,idFile,email,autore){
 
   //gestione errori
   private handleError(error: HttpErrorResponse) {
+    console.log(error)
     if (error.status == 400) {
      // alert("username o password errata")
 
