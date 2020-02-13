@@ -72,7 +72,7 @@ public class Utils {
 
 
 	public static String generatemAUTFile(SingleGraph graph,File outputFile){
-		String data = "des(0," + graph.getEdgeCount() + "," + graph.getNodeCount() + ")\n";
+		String data = "des(0," + graph.getEdgeCount() + "," + graph.getNodeCount()+1 + ")\n";
 		for (Edge e : graph.getEdgeSet()) {
 			String label=e.getAttribute("ui.label");
 			if (label.equals("tau")) {

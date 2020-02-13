@@ -225,6 +225,7 @@ public class ModelCheckHandler {
 							}
 
 						}
+						System.out.println("IL RISULTATO è "+result);
 						resultState = !(result.contains(" not "));
 						log = log.replace(collaborationFolder, "");
 						command = command.replace(collaborationFolder, "");

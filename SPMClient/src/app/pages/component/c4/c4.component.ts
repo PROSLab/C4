@@ -27,8 +27,9 @@ export class C4Component implements OnInit {
   choreography: any = '';
   collaboration: any = '';
   marked = false;
+  theCheckbox='true'; //cambiare da 'true' a false se si vuole levare la spunta di default e cambiare poi weak
   equivalence: any;
-  weak = false;
+  weak = true; //weak è checked di default
   file1
   file2
   anteprima: boolean = false;
@@ -523,7 +524,7 @@ fileSelezionato="Nessun file è stato selezionato"
     this.equivalence = equivalence
     this.weak = weak
     if (this.weak == undefined) {
-      this.weak = false
+      this.weak = true
     }
   
     this.checked = true;
@@ -580,7 +581,6 @@ this.state=checkEqui.resultState
       
       this.service.submitC4(this.fileToUpload, this.fileToUpload2)
         .subscribe(data => {
-console.log("cici")
           var mcrl =JSON.parse(data) 
           this.collaboration = mcrl.collaboration
           this.choreography = mcrl.choreography
@@ -594,8 +594,6 @@ console.log("cici")
       this.toastr.error('Error , you must upload file', 'File upload')
     } 
   }
-
-
 
   downloadColl() {
     this.http.get(this.service.baseUrl+"api/modelcheck/download?filename=" + this.collaboration + "&collaboration=true", { responseType: "text" }).subscribe(response => {

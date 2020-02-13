@@ -155,6 +155,7 @@ parseModelCheck(fileToUpload,fileToUpload2): Observable<any> {
 
 checkEquivalence(weak,equivalence,collaborationCode,choreographyCode){
  let formData: FormData = new FormData();
+ console.log("weak:",weak)
 formData.append('weak', weak)
 formData.append('equivalence', equivalence)
 formData.append('collaborationPath', collaborationCode)
