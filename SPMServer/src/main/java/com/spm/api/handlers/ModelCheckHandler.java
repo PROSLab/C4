@@ -210,7 +210,7 @@ public class ModelCheckHandler {
 							result += line + "\n";
 						} // produce result for the program.
 						
-						resultState = !(result.contains(" not "));
+						resultState = result.contains(" are equal ");
 						
 						if (result.contains("Saved counterexample to")) {
 
@@ -226,7 +226,7 @@ public class ModelCheckHandler {
 
 						}
 						System.out.println("IL RISULTATO è "+result);
-						resultState = !(result.contains(" not "));
+						resultState = result.contains(" are equal ");
 						log = log.replace(collaborationFolder, "");
 						command = command.replace(collaborationFolder, "");
 						log = log.replace(choreographyFolder, "");
