@@ -2,8 +2,6 @@
 <p><strong>Universit&agrave; degli studi di Camerino</strong></p>
 <p>&nbsp;</p>
 
-<p>Documentazione progetto Business Process Digitalization and Cloud Computing</p>
-
 <h2>Your online repository for .bpmn models<h2>
 <strong>Abstract</strong>
   <h3>
@@ -13,12 +11,11 @@
 <p>The registered user will have at his disposal a search-bar to search for a bpmn model in a repository and will be able to share his own models with other users.</p>
 <p>User can use &ldquo;C4 TOOL &ndash; COLLABORATION VS CHOREOGRAPHY CONFORMANCE CHECKING IN BPMN 2&rdquo;, <strong>&nbsp;</strong>the C4 formal framework aims at supporting modelers to automatically check whether a collaboration conforms to a prescribed choreography.</p>
 <p>It&rsquo;s also possible to join two differents collaboration models using &ldquo;merge&rdquo; option. The tool allows you to join two different models (like sender and receiver), connecting the right&nbsp; matching message flow, if they are.</p>
-
+  </h3>
 <h2><strong>Installation (on local machine)</strong></h2>
 <p>Before downloading the project you need to prepare your local machine: for client-side project part Node.js is needed; instead for the server-side part you need to install Eclipse IDE for Java EE Developers.</p>
 <p>Since the frontend part of the project was made with Angular, to start it you will need Node.js; while the server part is built using Java Spring WebFlux with Maven and then you'll need Java EE IDE to run the server. Now you can clone or download our project in GitHub repository.</p>
 <p>&nbsp;Inside the project you will find two main subfolders, one is called SPMClient and contains all the client-side files; instead the other folder SPMServer contains server-side files.</p>
-</h3>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <h2><strong>Usage (on local machine)</strong></h2>
