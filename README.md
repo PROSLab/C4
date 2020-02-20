@@ -6,6 +6,7 @@
 
 <h2>Your online repository for .bpmn models<h2>
 <strong>Abstract</strong>
+  <h3>
 <p>The project consists of a web platform which allows users to register and access the different .bpmn files uploaded to the platform repositories. Briefly, each registered user has a private repository accessible only to that user, while he can have access to all public repositories also of other users. Within a repository the user can create a .bpmn model, create folders, delete model or move folders.</p>
 <p>The user can use both collaboration and choreography model within his repositories.</p>
 <p>For every model the user can create different versions, then work on the desired version in order to have a history of the changes made to the same .bpmn model. User can open the desired version of the .bpmn file in the bpmn.io editor built-in inside the platform, or download directly this version, or a collection of versions for the same model, to his local machine. The user can check the validity and soundness of the model and see the results shown (available only for collaboration model) (actually not available in online view).</p>
@@ -17,6 +18,7 @@
 <p>Before downloading the project you need to prepare your local machine: for client-side project part Node.js is needed; instead for the server-side part you need to install Eclipse IDE for Java EE Developers.</p>
 <p>Since the frontend part of the project was made with Angular, to start it you will need Node.js; while the server part is built using Java Spring WebFlux with Maven and then you'll need Java EE IDE to run the server. Now you can clone or download our project in GitHub repository.</p>
 <p>&nbsp;Inside the project you will find two main subfolders, one is called SPMClient and contains all the client-side files; instead the other folder SPMServer contains server-side files.</p>
+</h3>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <h2><strong>Usage (on local machine)</strong></h2>
