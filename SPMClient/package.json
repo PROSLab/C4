@@ -28,7 +28,7 @@
     "@types/file-saver": "^2.0.0",
     "@types/jquery": "^3.3.29",
     "angular-calendar": "^0.22.1",
-    "bootstrap": "^4.0.0-beta",
+    "bootstrap": "^4.3.1",
     "bpmn-js": "^2.5.4",
     "bpmn-js-app": "file:bpmn-js-app",
     "bpmn-js-properties-panel": "^0.26.2",
